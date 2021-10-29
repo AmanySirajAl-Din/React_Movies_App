@@ -23,7 +23,7 @@ export default function Movies() {
         <Container className="row m-auto">
             {movies.map((movie) => {
                 movie.backdrop_path = `https://www.themoviedb.org/t/p/w220_and_h330_face${movie.backdrop_path}`
-                return <MovieItem key={movie.id} title={movie.title} poster={movie.backdrop_path} />;
+                return <MovieItem key={movie.id} title={movie.title} poster={movie.backdrop_path} overview={movie.overview} />;
             })}
             <Pagination />
         </Container >
