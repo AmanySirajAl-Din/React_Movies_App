@@ -1,3 +1,11 @@
 .page-item{
     display: inline-block;
 }
+
+.page-link.disabled{
+    color: rgba(128, 128, 128, 0.336)!important;
+}
+
+.page-item.active{
+
+}
