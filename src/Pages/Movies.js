@@ -1,4 +1,7 @@
 import { useState, useEffect } from "react";
+import { Container } from "react-bootstrap";
+
+import MovieCard from "../Components/MovieCard";
 
 import axiosInstance from "../Network/AxiosConfig";
 
@@ -16,13 +19,11 @@ export default function Movies() {
     }, []); // to run on load
 
     return (
-        <div>
-            <h1>Movies list</h1>
-            <ul>
-                {movies.map((movie) => {
-                    return <li key={movie.id}>{movie.title}</li>;
-                })}
-            </ul>
-        </div>
+        <Container className="row m-auto">
+            {movies.map((movie) => {
+
+                return <MovieCard key={movie.id} title={movie.title} poster={movie.backdrop_path} />;
+            })}
+        </Container >
     );
 };
