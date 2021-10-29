@@ -15,6 +15,8 @@
 
 * Install Axios (for HTTP requests)
     >$ npm install axios 
+    - To use it:
+        `import axios from 'axios';`
 
 * Create account on the movie database website :
 https://www.themoviedb.org
