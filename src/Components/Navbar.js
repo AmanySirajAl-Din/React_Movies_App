@@ -16,8 +16,7 @@ export default function NavbarComponent() {
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
                         <Link className="mx-2" to="/">Movies</Link>
-                        <Link className="mx-2" to="/addMovies">Add Movies</Link>
-                        <Link className="mx-2" to="/hooks">Hooks</Link>
+                        <Link className="mx-2" to="/addMovie">Add Movie</Link>
                         <Link className="mx-2" to="/users">Users</Link>
                     </Nav>
                 </Navbar.Collapse>

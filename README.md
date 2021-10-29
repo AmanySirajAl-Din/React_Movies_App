@@ -28,6 +28,8 @@ https://api.themoviedb.org/3/movie/popular?api_key=b6df6e2465b3dff1fffe5943c196a
 * Using dynamic routes get movie details data using API :
 https://api.themoviedb.org/3/movie/880009?api_key=b6df6e2465b3dff1fffe5943c196a3a5
 
+Where 880009 is movie id
+
 
 
 
