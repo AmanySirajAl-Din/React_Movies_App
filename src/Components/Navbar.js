@@ -1,11 +1,13 @@
 import { Navbar, Container, Nav, NavDropdown, Offcanvas, Form, FormControl, Button } from "react-bootstrap";
+import searchFun from "./searchFun.js";
 import { Link } from "react-router-dom";
 
 import logo from "../assets/images/logo.png";
 
 import "./Navbar.css";
 
-export default function NavbarComponent() {
+export default function NavbarComponent(props) {
+    console.log(props)
     return (
         /* <Navbar bg="dark" variant="dark" expand="lg">
             <Container>
@@ -21,7 +23,18 @@ export default function NavbarComponent() {
                     </Nav>
                 </Navbar.Collapse>
             </Container>
-        </Navbar> */
+        </Navbar>
+        <Nav.Link href="#action1">Home</Nav.Link>
+        <Nav.Link href="#action2">Link</Nav.Link>
+        <NavDropdown title="Dropdown" id="offcanvasNavbarDropdown">
+            <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
+            <NavDropdown.Item href="#action4">Another action</NavDropdown.Item>
+            <NavDropdown.Divider />
+            <NavDropdown.Item href="#action5">
+                Something else here
+            </NavDropdown.Item>
+        </NavDropdown>
+        */
 
         <Navbar bg="light" expand={false} >
             <Container fluid>
@@ -36,23 +49,16 @@ export default function NavbarComponent() {
                     </Offcanvas.Header>
                     <Offcanvas.Body>
                         <Nav className="justify-content-start flex-grow-1 pe-3">
-                            <Nav.Link href="#action1">Home</Nav.Link>
-                            <Nav.Link href="#action2">Link</Nav.Link>
-                            <NavDropdown title="Dropdown" id="offcanvasNavbarDropdown">
-                                <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-                                <NavDropdown.Item href="#action4">Another action</NavDropdown.Item>
-                                <NavDropdown.Divider />
-                                <NavDropdown.Item href="#action5">
-                                    Something else here
-                                </NavDropdown.Item>
-                            </NavDropdown>
+                            <Link className="mx-2" to="/">Movies</Link>
+                            <Link className="mx-2" to="/addMovie">Add Movie</Link>
+                            <Link className="mx-2" to="/users">Users</Link>
                         </Nav>
                     </Offcanvas.Body>
                 </Navbar.Offcanvas>
                 <Navbar.Brand className="me-auto" href="/">
                     <img src={logo} className="w-100" alt="logo" />
                 </Navbar.Brand>
-                <Form className="d-flex">
+                <Form className="d-flex" onSubmit={searchFun}>
                     <FormControl
                         type="search"
                         placeholder="Search"
