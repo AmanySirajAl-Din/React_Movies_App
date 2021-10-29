@@ -1,10 +1,13 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
 import NavbarComponent from "./components/Navbar/Navbar";
-import Movies from "./pages/Movies";
 import AddMovies from "./components/AddMovies";
 import MovieDetails from "./components/MovieDetails";
-import NotFound from './components/NotFound';
+
+import Movies from "./pages/Movies";
 import Users from './pages/Users';
+import NotFound from './pages/NotFound';
+
 import './App.css';
 
 function App() {
