@@ -21,7 +21,7 @@ export default function Movies() {
     return (
         <Container className="row m-auto">
             {movies.map((movie) => {
-
+                movie.backdrop_path = `https://www.themoviedb.org/t/p/w220_and_h330_face${movie.backdrop_path}`
                 return <MovieCard key={movie.id} title={movie.title} poster={movie.backdrop_path} />;
             })}
         </Container >
