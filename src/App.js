@@ -1,12 +1,12 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import NavbarComponent from "./components/Navbar/Navbar";
-import AddMovies from "./components/AddMovies";
-import MovieDetails from "./components/MovieDetails";
+import NavbarComponent from "./Components/Navbar";
+import AddMovie from "./Components/AddMovie";
+import MovieDetails from "./Components/MovieDetails";
 
-import Movies from "./pages/Movies";
-import Users from './pages/Users';
-import NotFound from './pages/NotFound';
+import Movies from "./Pages/Movies";
+import Users from './Pages/Users';
+import NotFound from './Pages/NotFound';
 
 import './App.css';
 
@@ -16,7 +16,7 @@ function App() {
       <NavbarComponent />
       <Switch>
         <Route path="/" exact component={Movies} />
-        <Route path="/addMovies" exact component={AddMovies} />
+        <Route path="/addMovie" exact component={AddMovie} />
         <Route path="/details/:id" exact component={MovieDetails} />
         <Route path="/users" exact component={Users} />
         <Route path="*" exact component={NotFound} />
