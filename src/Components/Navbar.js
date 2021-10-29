@@ -1,13 +1,16 @@
-import { Navbar, Container, Nav, NavDropdown, Offcanvas, Form, FormControl, Button } from "react-bootstrap";
-import searchFun from "./searchFun.js";
+import { Navbar, Container, Nav, NavDropdown, Offcanvas } from "react-bootstrap";
+
 import { Link } from "react-router-dom";
+
+import SearchForm from "./SearchForm.js";
+
+/* import searchFun from "./searchFun.js"; */
 
 import logo from "../assets/images/logo.png";
 
 import "./Navbar.css";
 
-export default function NavbarComponent(props) {
-    console.log(props)
+export default function NavbarComponent() {
     return (
         /* <Navbar bg="dark" variant="dark" expand="lg">
             <Container>
@@ -58,15 +61,7 @@ export default function NavbarComponent(props) {
                 <Navbar.Brand className="me-auto" href="/">
                     <img src={logo} className="w-100" alt="logo" />
                 </Navbar.Brand>
-                <Form className="d-flex" onSubmit={searchFun}>
-                    <FormControl
-                        type="search"
-                        placeholder="Search"
-                        className="me-2"
-                        aria-label="Search"
-                    />
-                    <Button variant="outline-danger">Search</Button>
-                </Form>
+                <SearchForm />
             </Container>
         </Navbar >
     );

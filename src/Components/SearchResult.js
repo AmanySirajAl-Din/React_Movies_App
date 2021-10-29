@@ -7,12 +7,15 @@ import Pagination from "../Components/Pagination";
 
 import axiosInstance from "../Network/AxiosConfig";
 
-export default function Movies(props) {
+export default function SearchResult(props) {
+    const [moviesSearch, setMoviesSearch] = useState([]);
+    const [searchTxt, setSearchTxt] = useState("")
+    console.log(props)
     const [movies, setMovie] = useState([]);
     const [total_pages, setTotalPages] = useState(0);
     //let [page, setPage] = useState(Number(props.match.params.page) || 1);
     //or
-    let [page, setPage] = useState(useParams().page || 1);
+    let [page, setPage] = useState(useParams().txt || 1);
 
 
     console.log(useParams());
@@ -37,10 +40,10 @@ export default function Movies(props) {
     };
 
     useEffect(() => {
-        props.history.push(`/movies/page=${page}`); // change URL to put page number as param
+        props.history.push(`/movies/search=${page}`); // change URL to put page number as param
 
         axiosInstance
-            .get(`/popular?api_key=b6df6e2465b3dff1fffe5943c196a3a5&page=${page}`)
+            .get(`/search/movie?api_key=b6df6e2465b3dff1fffe5943c196a3a5&language=en-US&query=${searchTxt}&page=1&include_adult=false`)
             .then((res) => {
                 setMovie(res.data.results)
                 //console.log("then")
