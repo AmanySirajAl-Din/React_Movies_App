@@ -17,6 +17,17 @@
     >$ npm install axios 
     - To use it:
         `import axios from 'axios';`
+* Install MDB react
+    >npm install --save mdbreact
+    - in src/index.js:
+
+        `import 'mdbreact/dist/css/mdb.css';`
+
+* Install mdb-react-ui-kit
+    >npm i mdb-react-ui-kit
+    - in src/index.js:
+
+        `import 'mdb-react-ui-kit/dist/css/mdb.min.css';`
 
 * Create account on the movie database website :
 https://www.themoviedb.org
