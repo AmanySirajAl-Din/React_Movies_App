@@ -55,8 +55,8 @@ export default function Movies(props) {
     return (
         <Container className="row m-auto">
             {movies.map((movie) => {
-                movie.backdrop_path = `https://www.themoviedb.org/t/p/w220_and_h330_face${movie.backdrop_path}`
-                return <MovieItem key={movie.id} title={movie.title} poster={movie.backdrop_path} release_date={movie.release_date} />;
+                movie.poster_path = `https://www.themoviedb.org/t/p/w220_and_h330_face${movie.poster_path}`
+                return <MovieItem key={movie.id} title={movie.title} poster={movie.poster_path} release_date={movie.release_date} />;
             })}
             <Pagination page={page} total_pages={total_pages} handelClick={pageNumFun} />
         </Container >
