@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { Container } from "react-bootstrap";
 
-import MovieCard from "../Components/MovieCard";
+import MovieItem from "../Components/MovieCard";
+import Pagination from "../Components/Pagination";
 
 import axiosInstance from "../Network/AxiosConfig";
 
@@ -22,8 +23,9 @@ export default function Movies() {
         <Container className="row m-auto">
             {movies.map((movie) => {
                 movie.backdrop_path = `https://www.themoviedb.org/t/p/w220_and_h330_face${movie.backdrop_path}`
-                return <MovieCard key={movie.id} title={movie.title} poster={movie.backdrop_path} />;
+                return <MovieItem key={movie.id} title={movie.title} poster={movie.backdrop_path} />;
             })}
+            <Pagination />
         </Container >
     );
 };
