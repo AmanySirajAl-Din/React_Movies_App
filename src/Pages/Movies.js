@@ -56,7 +56,7 @@ export default function Movies(props) {
         <Container className="row m-auto">
             {movies.map((movie) => {
                 movie.poster_path = `https://www.themoviedb.org/t/p/w220_and_h330_face${movie.poster_path}`
-                return <MovieItem key={movie.id} title={movie.title} poster={movie.poster_path} release_date={movie.release_date} />;
+                return <MovieItem key={movie.id} movie={movie} />;
             })}
             <Pagination page={page} total_pages={total_pages} handelClick={pageNumFun} />
         </Container >
