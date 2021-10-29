@@ -17,7 +17,9 @@ export default function MovieItem({ movie }) {
                     <Card.Text>
                         {movie.release_date}
                     </Card.Text>
-
+                    <div className="Drawer" hidden>
+                        {movie.overview}
+                    </div>
                 </Card.Body>
                 <Button variant="primary">Go somewhere</Button>
             </Card>
