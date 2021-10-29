@@ -2,7 +2,7 @@ import React from 'react';
 import { MDBPagination, MDBPaginationItem, MDBPaginationLink } from 'mdb-react-ui-kit';
 
 import "./Pagination.css"
-export default function Pagination({ page }) {
+export default function Pagination({ page, total_pages }) {
     return (
         <nav aria-label='Page navigation example' className="text-center">
             <MDBPagination className='mb-5 text-center d-block'>

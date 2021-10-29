@@ -27,7 +27,7 @@ export default function Movies() {
                 movie.backdrop_path = `https://www.themoviedb.org/t/p/w220_and_h330_face${movie.backdrop_path}`
                 return <MovieItem key={movie.id} title={movie.title} poster={movie.backdrop_path} release_date={movie.release_date} />;
             })}
-            <Pagination page={1} />
+            <Pagination page={1} total_pages={total_pages} />
         </Container >
     );
 };
