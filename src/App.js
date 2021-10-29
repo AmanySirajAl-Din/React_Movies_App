@@ -8,7 +8,6 @@ import MovieDetails from "./Components/MovieDetails";
 import Movies from "./Pages/Movies";
 import Users from './Pages/Users';
 import NotFound from './Pages/NotFound';
-import { Pagination } from "react-bootstrap";
 
 import './App.css';
 
