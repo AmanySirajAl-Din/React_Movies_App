@@ -53,7 +53,7 @@ export default function Pagination({ page, total_pages, handelClick }) {
         }
 
         console.log(pagesNums);
-    }, [page, total_pages, pagesNums]);
+    }, [page, total_pages]);
 
     return (
         //onClick={() => redirectToPage("-1")}
