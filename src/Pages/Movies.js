@@ -8,6 +8,7 @@ import axiosInstance from "../Network/AxiosConfig";
 
 export default function Movies() {
     const [movies, setMovie] = useState([]);
+    const [total_pages, setTotalPages] = useState(0);
     useEffect(() => {
         axiosInstance
             .get("/3/movie/popular?api_key=b6df6e2465b3dff1fffe5943c196a3a5")
@@ -15,6 +16,7 @@ export default function Movies() {
                 setMovie(res.data.results)
                 //console.log("then")
                 //console.log(movies)
+                setTotalPages(res.data.total_pages);
             })
             .catch((err) => console.log(err));
     }, []); // to run on load
@@ -25,7 +27,7 @@ export default function Movies() {
                 movie.backdrop_path = `https://www.themoviedb.org/t/p/w220_and_h330_face${movie.backdrop_path}`
                 return <MovieItem key={movie.id} title={movie.title} poster={movie.backdrop_path} release_date={movie.release_date} />;
             })}
-            <Pagination />
+            <Pagination page={1} />
         </Container >
     );
 };

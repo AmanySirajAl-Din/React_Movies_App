@@ -1,10 +1,11 @@
 import React from 'react';
 import { MDBPagination, MDBPaginationItem, MDBPaginationLink } from 'mdb-react-ui-kit';
 
-export default function Pagination() {
+import "./Pagination.css"
+export default function Pagination({ page }) {
     return (
-        <nav aria-label='Page navigation example'>
-            <MDBPagination className='mb-0'>
+        <nav aria-label='Page navigation example' className="text-center">
+            <MDBPagination className='mb-5 text-center d-block'>
                 <MDBPaginationItem>
                     <MDBPaginationLink href='#'>Previous</MDBPaginationLink>
                 </MDBPaginationItem>

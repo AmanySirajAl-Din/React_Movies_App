@@ -1,7 +1,5 @@
 import { Card, Button } from "react-bootstrap";
 
-import "./MovieCard.css"
-
 export default function MovieItem({ title, poster, release_date }) {
     //const { title, poster } = props;
     return (
