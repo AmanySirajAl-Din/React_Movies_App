@@ -7,13 +7,18 @@ import Pagination from "../Components/Pagination";
 
 import axiosInstance from "../Network/AxiosConfig";
 
-export default function Movies() {
+export default function Movies(props) {
     const [movies, setMovie] = useState([]);
     const [total_pages, setTotalPages] = useState(0);
-    let [page, setPage] = useState(1);
+    //let [page, setPage] = useState(Number(props.match.params.page) || 1);
+    //or
+    let [page, setPage] = useState(useParams().page || 1);
+
+
+    console.log(useParams());
 
     const pageNumFun = (pageToGo) => {
-        console.log("pageToGo " + pageToGo)
+        //console.log("pageToGo " + pageToGo)
         switch (pageToGo) {
             case "-1":
                 if (page !== 1) {
@@ -27,24 +32,13 @@ export default function Movies() {
                 break;
             default:
                 setPage(page = pageToGo);
-        }
-        console.log("page " + page)
-    }
+        };
+        //console.log("page " + page)
+    };
 
     useEffect(() => {
-        axiosInstance
-            .get(`popular?api_key=b6df6e2465b3dff1fffe5943c196a3a5&page=1`)
-            .then((res) => {
-                setMovie(res.data.results)
-                //console.log("then")
-                //console.log(movies)
-                setTotalPages(res.data.total_pages);
-                console.log(res.data.results)
-            })
-            .catch((err) => console.log(err));
-    }, []); // to run on load
+        props.history.push(`/movies/page=${page}`); // change URL to put page number as param
 
-    useEffect(() => {
         axiosInstance
             .get(`popular?api_key=b6df6e2465b3dff1fffe5943c196a3a5&page=${page}`)
             .then((res) => {
@@ -55,7 +49,8 @@ export default function Movies() {
                 console.log(res.data.results)
             })
             .catch((err) => console.log(err));
-    }, [page]); // to run on load
+
+    }, [page, props.history]);
 
     return (
         <Container className="row m-auto">

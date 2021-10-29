@@ -6,10 +6,11 @@ import { useState, useEffect } from 'react';
 import "./Pagination.css"
 
 export default function Pagination({ page, total_pages, handelClick }) {
+    page = Number(page);
     const [pagesNums, setPageNums] = useState({
         num1: page,
-        num2: 2,
-        num3: 3
+        num2: page + 1,
+        num3: page + 2
     });
     useEffect(() => {
         if ((page - 1) % 3 === 0 && page < total_pages - 2) {
@@ -26,8 +27,33 @@ export default function Pagination({ page, total_pages, handelClick }) {
             }); 
         }*/
 
-        console.log("pagesNums " + pagesNums);
-    }, [page]);
+        if (!(pagesNums.num1 === page && pagesNums.num2 === page + 1 && pagesNums.num3 === page + 2) ||
+            (!(pagesNums.num1 === page - 1 && pagesNums.num2 === page && pagesNums.num3 === page + 1)) ||
+            (!(pagesNums.num1 === page - 2 && pagesNums.num2 === page - 1 && pagesNums.num3 === page))) {
+
+            if ((page - 1) % 3 === 0 && page < total_pages - 2) {
+                setPageNums({
+                    num1: page,
+                    num2: page + 1,
+                    num3: page + 2
+                });
+            } else if (page % 3 === 0) {
+                setPageNums({
+                    num1: page - 2,
+                    num2: page - 1,
+                    num3: page
+                });
+            } else {
+                setPageNums({
+                    num1: page - 1,
+                    num2: page,
+                    num3: page + 1
+                });
+            }
+        }
+
+        console.log(pagesNums);
+    }, [page, total_pages, pagesNums]);
 
     return (
         //onClick={() => redirectToPage("-1")}
