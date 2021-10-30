@@ -43,6 +43,10 @@ export default function Movies() {
     //console.log(location)
 
     useEffect(() => {
+        setPage(1);
+    }, [location.search]); // When make new search return to page 1
+
+    useEffect(() => {
         if (location.search === '') {
             history.push(`/movies/page=${page}`); // change URL to put page number as param
 
@@ -57,8 +61,8 @@ export default function Movies() {
                 })
                 .catch((err) => console.log(err));
         } else {
-            //console.log("search " + location.search.split('?')[0]);
-            history.push(`/movies${location.search}`); // change URL to put page number as param
+            console.log("search " + location.search);
+            history.push(`/movies/page=${page}${location.search}`); // change URL to put page number as param
 
             axiosInstance
                 .get(`/search/movie?api_key=b6df6e2465b3dff1fffe5943c196a3a5&language=en-US&query=${location.search.split('?')[1]}&page=${page}&include_adult=false`)
@@ -74,7 +78,7 @@ export default function Movies() {
                 .catch((err) => console.log(err));
         }
 
-    }, [page, history, location.search]);
+    }, [page, location.search]);
 
     return (
         <Container className="row m-auto">

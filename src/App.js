@@ -23,7 +23,7 @@ function App() {
         <Route path="/movies" exact component={Movies} />
         <Route path="/movies/page=:page" exact component={Movies} />
         <Route path="/movies/search=:searchTxt" exact component={SearchResult} />
-        <Route path="/movies?searchTxt" exact component={Movies} />
+        <Route path="/movies/page=:page?searchTxt" exact component={Movies} />
         <Route path="/addMovie" exact component={AddMovie} />
         <Route path="/details/:id" exact component={MovieDetails} />
         <Route path="/users" exact component={Users} />
