@@ -13,7 +13,8 @@ export default function Pagination({ page, total_pages, handelClick }) {
         num3: page + 2
     });
     useEffect(() => {
-        if ((page - 1) % 3 === 0 && page < total_pages - 2) {
+        if ((page - 1) % 3 === 0 && page < (total_pages - 2)) {
+            console.log("if 1")
             setPageNums({
                 num1: page,
                 num2: page + 1,
@@ -30,8 +31,10 @@ export default function Pagination({ page, total_pages, handelClick }) {
         if (!(pagesNums.num1 === page && pagesNums.num2 === page + 1 && pagesNums.num3 === page + 2) ||
             (!(pagesNums.num1 === page - 1 && pagesNums.num2 === page && pagesNums.num3 === page + 1)) ||
             (!(pagesNums.num1 === page - 2 && pagesNums.num2 === page - 1 && pagesNums.num3 === page))) {
+            console.log("if 2")
 
-            if ((page - 1) % 3 === 0 && page < total_pages - 2) {
+            if (((page - 1) % 3 === 0 && page < total_pages - 2) ||
+                page === total_pages - 2) {
                 setPageNums({
                     num1: page,
                     num2: page + 1,
@@ -43,7 +46,7 @@ export default function Pagination({ page, total_pages, handelClick }) {
                     num2: page - 1,
                     num3: page
                 });
-            } else {
+            } else if (page < (total_pages - 1)) {
                 setPageNums({
                     num1: page - 1,
                     num2: page,

@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 
 import { Form, FormControl, Button } from "react-bootstrap";
 
-import SearchResult from "./SearchResult";
 import { useHistory } from "react-router";
 
 export default function SearchForm(props) {
