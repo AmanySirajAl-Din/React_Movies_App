@@ -43,10 +43,6 @@ export default function Movies() {
     //console.log(location)
 
     useEffect(() => {
-        setPage(1);
-    }, [location.search]); // When make new search return to page 1
-
-    useEffect(() => {
         if (location.search === '') {
             history.push(`/movies/page=${page}`); // change URL to put page number as param
 
