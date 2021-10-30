@@ -61,7 +61,7 @@ export default function Movies() {
             history.push(`/movies${location.search}`); // change URL to put page number as param
 
             axiosInstance
-                .get(`/search/movie?api_key=b6df6e2465b3dff1fffe5943c196a3a5&language=en-US&query=${location.search.split('?')[1]}&page=1&include_adult=false`)
+                .get(`/search/movie?api_key=b6df6e2465b3dff1fffe5943c196a3a5&language=en-US&query=${location.search.split('?')[1]}&page=${page}&include_adult=false`)
                 .then((res) => {
                     setMovie(res.data.results)
                     console.log("then")

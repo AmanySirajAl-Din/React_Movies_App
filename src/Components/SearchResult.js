@@ -11,17 +11,16 @@ export default function SearchResult() {
     const [moviesSearch, setMoviesSearch] = useState([]);
     const [total_pages, setTotalPages] = useState(0);
 
-    console.log(useParams().searchTxt)
+    //console.log(useParams().searchTxt)
     const searchTxt = useParams().searchTxt;
     const history = useHistory();
 
-    //let [page, setPage] = useState(useParams().txt || 1);
+    let [page, setPage] = useState(useParams().txt || 1);
 
 
     console.log(useParams());
-    console.log(history.search);
 
-    /* const pageNumFun = (pageToGo) => {
+    const pageNumFun = (pageToGo) => {
         //console.log("pageToGo " + pageToGo)
         switch (pageToGo) {
             case "-1":
@@ -38,13 +37,13 @@ export default function SearchResult() {
                 setPage(page = pageToGo);
         };
         //console.log("page " + page)
-    }; */
+    };
 
     useEffect(() => {
         history.push(`/movies/search=${searchTxt}`); // change URL to put page number as param
 
         axiosInstance
-            .get(`/search/movie?api_key=b6df6e2465b3dff1fffe5943c196a3a5&language=en-US&query=${searchTxt}&page=1&include_adult=false`)
+            .get(`/search/movie?api_key=b6df6e2465b3dff1fffe5943c196a3a5&language=en-US&query=${searchTxt}&page=${page}&include_adult=false`)
             .then((res) => {
                 setMoviesSearch(res.data.results)
                 //console.log("then")
@@ -54,7 +53,7 @@ export default function SearchResult() {
             })
             .catch((err) => console.log(err));
 
-    }, []);
+    }, [page, history]);
 
     return (
         <Container className="row m-auto">
@@ -67,6 +66,7 @@ export default function SearchResult() {
                 return <MovieItem key={movie.id} movie={movie} />;
             })}
 
+            <Pagination page={page} total_pages={total_pages} handelClick={pageNumFun} />
         </Container >
     );
 };
