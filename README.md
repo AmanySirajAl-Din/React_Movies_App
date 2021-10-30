@@ -2,8 +2,8 @@
 
 ## App Functionallities
 
-* Show movies in cards
-* Search for movies by name
+* Show movies in cards (With multi pages 'Pagination')
+* Search for movies by name (With multi pages 'Pagination')
 
 ---
 ## App Pages
