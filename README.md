@@ -1,5 +1,24 @@
 # Movies App (Using Reactjs)
 
+## App Functionallities
+---
+* Show movies in cards
+* Search for movies by name
+
+## App Pages
+---
+* Movies Page (includes Movie Cards)
+* Add Movie Page
+
+## App Components
+---
+* Navbar Component
+* MovieCard Component
+* SearchForm Component
+* Pagination Component 
+
+## Package Installed 
+---
 * Install React
     >$ npx create-react-app react-movies-app
 
@@ -17,6 +36,7 @@
     >$ npm install axios 
     - To use it:
         `import axios from 'axios';`
+
 * Install MDB react
     >npm install --save mdbreact
     - in src/index.js:
