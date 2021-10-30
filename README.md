@@ -1,24 +1,27 @@
 # Movies App (Using Reactjs)
 
 ## App Functionallities
----
+
 * Show movies in cards
 * Search for movies by name
 
-## App Pages
 ---
+## App Pages
+
 * Movies Page (includes Movie Cards)
 * Add Movie Page
 
-## App Components
 ---
+## App Components
+
 * Navbar Component
 * MovieCard Component
 * SearchForm Component
 * Pagination Component 
 
-## Package Installed 
 ---
+## Package Installed 
+
 * Install React
     >$ npx create-react-app react-movies-app
 
