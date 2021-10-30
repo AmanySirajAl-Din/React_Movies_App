@@ -43,6 +43,12 @@ https://api.themoviedb.org/3/movie/880009?api_key=b6df6e2465b3dff1fffe5943c196a3
 
 Where 880009 is movie id
 
+* Search For Movies
+https://api.themoviedb.org/3/search/movie?api_key=b6df6e2465b3dff1fffe5943c196a3a5&language=en-US&query=luca&page=1&include_adult=false&year=0&primary_release_year=0
+
+
+
+
 
 
 
