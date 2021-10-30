@@ -52,6 +52,14 @@
 
         `import 'mdb-react-ui-kit/dist/css/mdb.min.css';`
 
+* Install REDUX and React Redux
+    >npm install redux react-redux
+    - in Redux there are three building parts: 
+        * actions
+        * store
+        * reducers
+
+
 * Create account on the movie database website :
 https://www.themoviedb.org
 
