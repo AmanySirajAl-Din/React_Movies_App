@@ -4,8 +4,6 @@ import { Link } from "react-router-dom";
 
 import SearchForm from "./SearchForm.js";
 
-/* import searchFun from "./searchFun.js"; */
-
 import logo from "../assets/images/logo.png";
 
 import "./Navbar.css";
@@ -15,7 +13,7 @@ export default function NavbarComponent() {
         /* <Navbar bg="dark" variant="dark" expand="lg">
             <Container>
                 <Navbar.Brand href="#home" className="navbar-brand">
-                    <img src={logo} className="w-100" alt="logo" />
+                    <img src={logo} className="w-200" alt="logo" />
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
@@ -48,7 +46,9 @@ export default function NavbarComponent() {
                     placement="start"
                 >
                     <Offcanvas.Header closeButton>
-                        <Offcanvas.Title id="offcanvasNavbarLabel">Offcanvas</Offcanvas.Title>
+                        <Navbar.Brand className="me-auto" href="/">
+                            <img src={logo} className="w-200" alt="logo" />
+                        </Navbar.Brand>
                     </Offcanvas.Header>
                     <Offcanvas.Body>
                         <Nav className="justify-content-start flex-grow-1 pe-3">
@@ -59,7 +59,7 @@ export default function NavbarComponent() {
                     </Offcanvas.Body>
                 </Navbar.Offcanvas>
                 <Navbar.Brand className="me-auto" href="/">
-                    <img src={logo} className="w-100" alt="logo" />
+                    <img src={logo} className="w-200" alt="logo" />
                 </Navbar.Brand>
                 <SearchForm />
             </Container>

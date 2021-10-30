@@ -1,26 +1,27 @@
 import { useState, useEffect } from "react";
 import { Container } from "react-bootstrap";
-import { useParams } from "react-router";
+import { useHistory, useParams } from "react-router";
 
 import MovieItem from "../Components/MovieCard";
 import Pagination from "../Components/Pagination";
 
 import axiosInstance from "../Network/AxiosConfig";
 
-export default function SearchResult(props) {
+export default function SearchResult() {
     const [moviesSearch, setMoviesSearch] = useState([]);
-    const [searchTxt, setSearchTxt] = useState("")
-    console.log(props)
-    const [movies, setMovie] = useState([]);
     const [total_pages, setTotalPages] = useState(0);
-    //let [page, setPage] = useState(Number(props.match.params.page) || 1);
-    //or
-    let [page, setPage] = useState(useParams().txt || 1);
+
+    console.log(useParams().searchTxt)
+    const searchTxt = useParams().searchTxt;
+    const history = useHistory();
+
+    //let [page, setPage] = useState(useParams().txt || 1);
 
 
     console.log(useParams());
+    console.log(history.search);
 
-    const pageNumFun = (pageToGo) => {
+    /* const pageNumFun = (pageToGo) => {
         //console.log("pageToGo " + pageToGo)
         switch (pageToGo) {
             case "-1":
@@ -37,15 +38,15 @@ export default function SearchResult(props) {
                 setPage(page = pageToGo);
         };
         //console.log("page " + page)
-    };
+    }; */
 
     useEffect(() => {
-        props.history.push(`/movies/search=${page}`); // change URL to put page number as param
+        history.push(`/movies/search=${searchTxt}`); // change URL to put page number as param
 
         axiosInstance
             .get(`/search/movie?api_key=b6df6e2465b3dff1fffe5943c196a3a5&language=en-US&query=${searchTxt}&page=1&include_adult=false`)
             .then((res) => {
-                setMovie(res.data.results)
+                setMoviesSearch(res.data.results)
                 //console.log("then")
                 //console.log(movies)
                 setTotalPages(res.data.total_pages);
@@ -53,15 +54,19 @@ export default function SearchResult(props) {
             })
             .catch((err) => console.log(err));
 
-    }, [page, props.history]);
+    }, []);
 
     return (
         <Container className="row m-auto">
-            {movies.map((movie) => {
-                movie.poster_path = `https://www.themoviedb.org/t/p/w220_and_h330_face${movie.backdrop_path}`
+            {moviesSearch.map((movie) => {
+                if (movie.backdrop_path !== null || movie.backdrop_path !== "") {
+                    movie.poster = `https://www.themoviedb.org/t/p/w220_and_h330_face${movie.backdrop_path}`;
+                } else {
+                    movie.poster = `https://www.themoviedb.org/t/p/w220_and_h330_face${movie.poster_path}`;
+                }
                 return <MovieItem key={movie.id} movie={movie} />;
             })}
-            <Pagination page={page} total_pages={total_pages} handelClick={pageNumFun} />
+
         </Container >
     );
 };

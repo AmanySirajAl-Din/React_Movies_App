@@ -1,14 +1,14 @@
 import axios from 'axios';
 
 const axiosInstance = axios.create({
-    baseURL: "https://api.themoviedb.org/3/movie",
+    baseURL: "https://api.themoviedb.org/3",
 });
 
 
 // Add a request interceptor
 axiosInstance.interceptors.request.use(function (config) {
-    console.log("SHOW LOADER");
-    console.log(config);
+    //console.log("SHOW LOADER");
+    //console.log(config);
     // Do something before request is sent
     return config;
 }, function (error) {
@@ -18,8 +18,8 @@ axiosInstance.interceptors.request.use(function (config) {
 
 // Add a response interceptor
 axiosInstance.interceptors.response.use(function (response) {
-    console.log("HIDE LOADER")
-    console.log(response);
+    //console.log("HIDE LOADER")
+    //console.log(response);
     // Any status code that lie within the range of 2xx cause this function to trigger
     // Do something with response data
     return response;
