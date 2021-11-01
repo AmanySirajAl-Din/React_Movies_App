@@ -1,10 +1,11 @@
-import { createStore } from "redux";
-import detailsReducer from "./reducers";
+import { applyMiddleware, createStore } from "redux";
+import combineReducers from "./reducers/combineReducer";
+import { composeWithDevTools } from "redux-devtools-extension";
+import thunk from "redux-thunk";
 
-//redux dev tool
-const devTools =
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(); // for React Dev Tools
-
-const store = createStore(detailsReducer, devTools);
+const store = createStore(
+  combineReducers,
+  composeWithDevTools(applyMiddleware(thunk))
+);
 
 export default store;
