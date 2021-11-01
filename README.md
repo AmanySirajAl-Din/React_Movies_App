@@ -8,8 +8,9 @@
 ---
 ## App Pages
 
-* Movies Page (includes Movie Cards)
+* Movies Page (includes Movie Cards and search results)
 * Add Movie Page
+* Movie Detailes Page
 
 ---
 ## App Components
@@ -31,6 +32,9 @@
     - in src/index.js:
 
         `import 'bootstrap/dist/css/bootstrap.min.css';`
+
+* Install React Icons
+    >npm install react-icons --save
 
 * Install React Router DOM
     >$ npm install react-router-dom
